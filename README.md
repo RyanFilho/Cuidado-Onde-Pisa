@@ -1,2 +1,2 @@
 # CSnake
-Joguinho Snake escrito em C
+Jogo Snake desenvolvido em C
