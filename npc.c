@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "npc.h"
 
 void criar_cobra(char tela[25][50], int posicao[2]){
 	tela[12][25] = '@';

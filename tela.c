@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "tela.h"
 
 // Criar tela.
 void criar_tela (char tela[25][50])
