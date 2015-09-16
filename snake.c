@@ -32,9 +32,7 @@ int main ()
 			case  DIREITA : mover_direita(tela, posicao);
 		}
 		verificar_morte(posicao);
-		Sleep(10);
-		system("cls");
-
+		Sleep(100);
 	}
 
 	return 0;
