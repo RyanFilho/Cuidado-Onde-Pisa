@@ -26,10 +26,18 @@ int main ()
 			direcao = getch();
 		}
 		switch(direcao){
-			case  CIMA : mover_cima(tela, posicao);
-			case  BAIXO : mover_baixo(tela, posicao);
-			case  ESQUERDA : mover_esquerda(tela, posicao);
-			case  DIREITA : mover_direita(tela, posicao);
+			case CIMA:
+                mover_cima(tela, posicao);
+                break;
+			case BAIXO:
+                mover_baixo(tela, posicao);
+                break;
+			case ESQUERDA:
+                mover_esquerda(tela, posicao);
+                break;
+			case DIREITA:
+                mover_direita(tela, posicao);
+                break;
 		}
 		verificar_morte(posicao);
 		Sleep(100);
