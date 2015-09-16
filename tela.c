@@ -3,30 +3,34 @@
 // Criar tela.
 void criar_tela (char tela[25][50])
 {
-	int i, k;
-	for (i = 0; i < 25; ++i)
-		for (k = 0; k < 50; ++k)
-			tela[i][k] = ' ';
-	for (i = 0; i < 50; ++i)
-		tela[0][i] = '#';
-	for (i = 0; i < 25; ++i)
-		tela[i][0] = '#';
-	for (i = 0; i < 25; ++i)
-		tela[i][49] = '#';
-	for (i = 0; i < 50; ++i)
-		tela[24][i] = '#';
+	int c, l;
+	for (l = 0; l < 25; ++l)
+		for (c = 0; c < 50; ++c)
+			tela[l][c] = ' ';
+			
+	for (c = 0; c < 50; ++c)
+		tela[0][c] = '#';
+		
+	for (l = 0; l < 25; ++l)
+		tela[l][0] = '#';
+		
+	for (l = 0; l < 25; ++l)
+		tela[l][49] = '#';
+		
+	for (c = 0; c < 50; ++c)
+		tela[24][c] = '#';
 }
 
 // Mostrar tela.
 void mostrar_tela (char tela[25][50])
 {
-	int i, k;
-	for (i = 0; i < 25; ++i)
+	int l, c;
+	for (l = 0; l < 25; ++l)
 	{
-		for ( k = 0; k < 50; ++k)
-			printf("%c", tela[i][k]);
+		for ( c = 0; c < 50; ++c)
+			printf("%c", tela[l][c]);
 		
 		printf("\n");
 	}
+	
 }
-
