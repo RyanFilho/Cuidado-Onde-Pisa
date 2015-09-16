@@ -25,3 +25,12 @@ void mover_direita(char tela[25][50], int posicao[2]){
 	posicao[1]++;
 	tela[posicao[0]][posicao[1]] = '@';
 }
+
+int verificar_morte(int posicao[2]){
+	if (posicao[0] > 23 || posicao[1] > 48 || posicao[0] < 1 || posicao[1] < 1 )
+	{
+		system("cls");
+		printf("\n\n\n\n\n\n\n                                Voce morreu !\n");
+		exit(1);
+	}
+}

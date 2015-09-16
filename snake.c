@@ -4,10 +4,10 @@
 #include "npc.c"
 #include "tela.c"
 
-#define CIMA 72
+#define CIMA 75
 #define BAIXO 80
 #define DIREITA 77
-#define ESQUERDA 75
+#define ESQUERDA -32
 
 int main ()
 {
@@ -18,6 +18,7 @@ int main ()
 	criar_cobra(tela , posicao);
 
 	while(1){
+		system("cls");
 		mostrar_tela(tela);
 
 
@@ -30,8 +31,8 @@ int main ()
 			case  ESQUERDA : mover_esquerda(tela, posicao);
 			case  DIREITA : mover_direita(tela, posicao);
 		}
-
-		Sleep(1);
+		verificar_morte(posicao);
+		Sleep(10);
 		system("cls");
 
 	}
