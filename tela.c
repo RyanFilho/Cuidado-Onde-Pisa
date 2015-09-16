@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "tela.h"
 
 // Criar tela.
@@ -25,13 +26,16 @@ void criar_tela (char tela[25][50])
 // Mostrar tela.
 void mostrar_tela (char tela[25][50])
 {
+    char linha[51];
 	int l, c;
+	
+	linha[50] = '\0';
+	
 	for (l = 0; l < 25; ++l)
 	{
 		for ( c = 0; c < 50; ++c)
-			printf("%c", tela[l][c]);
+			linha[c] = tela[l][c];
 		
-		printf("\n");
+		printf("%s\n", linha);
 	}
-	
 }
