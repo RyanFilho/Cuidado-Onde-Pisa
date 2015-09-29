@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
-#include "npc.h"
-#include "tela.h"
+#include "npc.c"
+#include "tela.c"
 
 #define CIMA 72
 #define BAIXO 80
@@ -15,15 +15,20 @@ int main ()
     char direcao = 77;
     int posicao[2] = {3, 3};
     criar_tela(tela);
-    criar_cobra(tela , posicao);
+    criar_cobra(tela, posicao);
 
     while (1) {
         system("cls");
         mostrar_tela(tela);
 
 
-        while (kbhit())
-            direcao = getch();
+        while (kbhit()){
+            char aux = getch();
+            if (aux == CIMA || aux == BAIXO || aux == ESQUERDA || aux == DIREITA)
+            {
+                direcao = aux;
+            }            
+        }
             
         
         switch (direcao)

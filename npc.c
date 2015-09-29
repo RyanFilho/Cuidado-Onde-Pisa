@@ -1,31 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "npc.h"
 
-void criar_cobra (char tela[25][50], int posicao[2])
+void criar_cobra (char tela[][50], int posicao[2])
 {
 	tela[posicao[0]][posicao[1]] = '@';
 }
 
-void mover_baixo (char tela[25][50], int posicao[2])
+void mover_baixo (char tela[][50], int posicao[2])
 {
 	tela[posicao[0]][posicao[1]] = ' ';
 	posicao[0]++;
 	tela[posicao[0]][posicao[1]] = '@';
 }
-void mover_cima (char tela[25][50], int posicao[2])
+void mover_cima (char tela[][50], int posicao[2])
 {
 	tela[posicao[0]][posicao[1]] = ' ';
 	posicao[0]--;
 	tela[posicao[0]][posicao[1]] = '@';
 }
-void mover_esquerda (char tela[25][50], int posicao[2])
+void mover_esquerda (char tela[][50], int posicao[2])
 {
 	tela[posicao[0]][posicao[1]] = ' ';
 	posicao[1]--;
 	tela[posicao[0]][posicao[1]] = '@';
 }
-void mover_direita (char tela[25][50], int posicao[2])
+void mover_direita (char tela[][50], int posicao[2])
 {
 	tela[posicao[0]][posicao[1]] = ' ';
 	posicao[1]++;

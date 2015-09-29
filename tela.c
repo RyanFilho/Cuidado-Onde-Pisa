@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include "tela.h"
 
 // Criar tela.
-void criar_tela (char tela[25][50])
+void criar_tela (char tela[][50])
 {
 	int c, l;
 	for (l = 0; l < 25; ++l)
@@ -24,7 +23,7 @@ void criar_tela (char tela[25][50])
 }
 
 // Mostrar tela.
-void mostrar_tela (char tela[25][50])
+void mostrar_tela (char tela[][50])
 {
     char linha[51];
 	int l, c;
