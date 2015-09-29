@@ -49,7 +49,7 @@ int main ()
                 // O que eu faço se o usuário apertou, digamos, A?
                 ;
         }
-        
+        criar_inimigo(tela);
         verificar_morte(posicao);
         Sleep(100);
     }
