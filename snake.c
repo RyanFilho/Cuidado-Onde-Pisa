@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
-#include "npc.c"
-#include "tela.c"
+#include "tela.h"
+#include "npc.h"
 
 #define CIMA 72
 #define BAIXO 80
