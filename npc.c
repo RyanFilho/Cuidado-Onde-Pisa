@@ -69,6 +69,9 @@ void verificar_morte(int posicao[2])
 }
 void criar_inimigo(char tela[][50])
 {
+	if ((1 + (rand() % 5) == 4))
+	{
+		tela[1 + (rand() % 23)][1 + (rand() % 48)] = 'X';
+	}
 	
-	tela[1 + (rand() % 23)][1 + (rand() % 48)] = 'X';
 }
