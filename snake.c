@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
-#include "tela.h"
+#include <cmddisplay.h>
 #include "npc.h"
 
 #define CIMA 72
