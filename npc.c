@@ -1,13 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <cmddisplay.h>
 #include "npc.h"
 
-void criar_cobra (char tela[][50], int posicao[2])
-{
-	tela[posicao[0]][posicao[1]] = '@';
-}
-
-void mover_baixo (char tela[][50], int posicao[2])
+/*void mover_baixo (display *tela, int posicao[2])
 {
 	tela[posicao[0]][posicao[1]] = ' ';
 	posicao[0]++;
@@ -19,7 +15,8 @@ void mover_baixo (char tela[][50], int posicao[2])
 	}
 	tela[posicao[0]][posicao[1]] = '@';
 }
-void mover_cima (char tela[][50], int posicao[2])
+
+void mover_cima (display *tela, int posicao[2])
 {
 	tela[posicao[0]][posicao[1]] = ' ';
 	posicao[0]--;
@@ -31,7 +28,8 @@ void mover_cima (char tela[][50], int posicao[2])
 	}
 	tela[posicao[0]][posicao[1]] = '@';
 }
-void mover_esquerda (char tela[][50], int posicao[2])
+
+void mover_esquerda (display *tela, int posicao[2])
 {
 	tela[posicao[0]][posicao[1]] = ' ';
 	posicao[1]--;
@@ -43,7 +41,8 @@ void mover_esquerda (char tela[][50], int posicao[2])
 	}
 	tela[posicao[0]][posicao[1]] = '@';
 }
-void mover_direita (char tela[][50], int posicao[2])
+
+void mover_direita (display *tela, int posicao[2])
 {
 	tela[posicao[0]][posicao[1]] = ' ';
 	posicao[1]++;
@@ -55,7 +54,7 @@ void mover_direita (char tela[][50], int posicao[2])
 	}
 	tela[posicao[0]][posicao[1]] = '@';
 }
-
+*/
 void verificar_morte(int posicao[2])
 {
 	if (
@@ -67,11 +66,13 @@ void verificar_morte(int posicao[2])
 		exit(1);
 	}
 }
-void criar_inimigo(char tela[][50])
+
+void criar_inimigo(display *tela, int inimigos[][2], int *n_inimigos)
 {
-	if ((1 + (rand() % 5) == 4))
+	if (1 || rand()% 5 == 0)
 	{
-		tela[1 + (rand() % 23)][1 + (rand() % 48)] = 'X';
+        inimigos[*n_inimigos][0] = 1 + rand() % 48;
+        inimigos[*n_inimigos][1] = 1 + rand() % 23;
+        (*n_inimigos)++;
 	}
-	
 }
