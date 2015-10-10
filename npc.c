@@ -18,7 +18,7 @@ void placar (display *tela, int n_inimigos)
 	elapsed -= g_start;
 
 	display_puts(tela, 0, 1, "%d inimigos", n_inimigos);
-	display_puts(tela, 0, 0, "%.0f segundos vivo", elapsed);
+	display_puts(tela, 0, 0, "%.2f segundos vivo", elapsed);
 }
 
 // função verificar_morte() precisa de pequenos ajustes.
