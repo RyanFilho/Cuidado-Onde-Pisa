@@ -34,17 +34,17 @@ int main ()
 {
     display tela;
     display_create(&tela, 52, 25);
-	
+
     char direcao = 77;
     int posicao[2] = {tela.width/2, tela.height/2 + 1};
-	
+
     int inimigos[23*48 - 1][2];
     int n_inimigos = 0;
 	int vel = 150;
-	
+
 	menu(&tela);
     criar_cobra(&tela);
-	
+
     while (1) {
         display_clear(&tela);
 
@@ -52,7 +52,7 @@ int main ()
         int i;
         for (i = 0; i < n_inimigos; i++)
             display_put_raw(&tela, inimigos[i][0], inimigos[i][1], 'X');
-		
+
         criar_bordas(&tela);
         display_paint(&tela, posicao[0], posicao[1]);
 
@@ -61,7 +61,7 @@ int main ()
             if (aux == CIMA || aux == BAIXO || aux == ESQUERDA || aux == DIREITA)
                 direcao = aux;
         }
-		
+
         switch (direcao)
         {
             case CIMA:
@@ -77,10 +77,10 @@ int main ()
                 posicao[0]++;
                 break;
         }
-		
-        verificar_morte(&tela, posicao); 
+
         velocidade(&vel);
         placar(&tela, n_inimigos);
+        verificar_morte(&tela, posicao);
         display_show(&tela);
 		Sleep(vel);
     }
