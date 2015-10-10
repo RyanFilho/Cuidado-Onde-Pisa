@@ -22,8 +22,9 @@ void placar(int n_inimigos)
 void verificar_morte(display *tela, int posicao[])
 {
 	if (
-        posicao[1] > tela->height-1 || posicao[0] > tela->width-1 ||
+        posicao[1] > tela->height-2 || posicao[0] > tela->width-2 ||
         posicao[1] < 1              || posicao[0] < 1 
+        || tela->screen[posicao[1]*tela->width + posicao[0]] == 'X'
     ) {
 		system("cls");
 		printf("\n\n\n\n\t\t\t Voce morreu !\n");
