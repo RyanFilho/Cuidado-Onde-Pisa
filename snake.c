@@ -20,7 +20,7 @@ void velocidade(int *vel)
 void criar_bordas (display *tela)
 {
     draw_line(tela, 0, 2, 0, tela->height-1);
-    draw_line(tela, 0, 2, tela->width-1, 0);
+    draw_line(tela, 0, 2, tela->width-1, 2);
     draw_line(tela, 0, tela->height-1, tela->width-1, tela->height-1);
     draw_line(tela, tela->width-1, tela->height-1, tela->width-1, 2);
 }
