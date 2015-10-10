@@ -10,7 +10,12 @@
 #define DIREITA 77
 #define ESQUERDA 75
 
-#define X_INICIAL 7
+// função velocidade() funcionando perfeitamente!
+void velocidade(int *vel)
+{
+	if(rand()%5 == 1)
+	*vel-=2;
+}
 
 void criar_bordas (display *tela)
 {
@@ -22,7 +27,7 @@ void criar_bordas (display *tela)
 
 void criar_cobra (display *tela)
 {
-    display_paint(tela, X_INICIAL, tela->height-4);
+    display_paint(tela, tela->width/2, tela->height/2);
     // int i;
     // for (i = 4; i < X_INICIAL; i++)
     //     display_paint(tela, i, tela->height-4);
@@ -32,15 +37,17 @@ int main ()
 {
     display tela;
     display_create(&tela, 50, 25);
-
+	
     char direcao = 77;
-    int posicao[2] = {X_INICIAL, tela.height-4};
-
+    int posicao[2] = {tela.width/2, tela.height/2};
+	
     int inimigos[23*48 - 1][2];
     int n_inimigos = 0;
-
+	int vel = 150;
+	
+	menu();
     criar_cobra(&tela);
-
+	
     while (1) {
         display_clear(&tela);
 
@@ -48,7 +55,7 @@ int main ()
         int i;
         for (i = 0; i < n_inimigos; i++)
             display_put_raw(&tela, inimigos[i][0], inimigos[i][1], 'X');
-
+		
         criar_bordas(&tela);
         display_paint(&tela, posicao[0], posicao[1]);
         display_show(&tela);
@@ -58,8 +65,7 @@ int main ()
             if (aux == CIMA || aux == BAIXO || aux == ESQUERDA || aux == DIREITA)
                 direcao = aux;
         }
-
-
+		
         switch (direcao)
         {
             case CIMA:
@@ -75,9 +81,11 @@ int main ()
                 posicao[0]++;
                 break;
         }
-
-        // verificar_morte(&tela,posicao);
-        Sleep(20);
+		
+        //verificar_morte(&tela, posicao); <---***precisa ajustar***
+        velocidade(&vel);
+		Sleep(vel);
+		placar(n_inimigos);
     }
 
     return 0;
