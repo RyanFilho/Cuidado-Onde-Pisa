@@ -42,8 +42,8 @@ void criar_inimigo (display *tela, int inimigos[][2], int *n_inimigos)
 {
 	if (rand()% 5 == 0)
 	{
-        inimigos[*n_inimigos][0] = 1 + rand() % tela->width-2;
-        inimigos[*n_inimigos][1] = 3 + rand() % tela->height-4;
+        inimigos[*n_inimigos][0] = 1 + (rand() % tela->width  -2);
+        inimigos[*n_inimigos][1] = 3 + (rand() % tela->height -4);
         (*n_inimigos)++;
 	}
 }
