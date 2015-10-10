@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
-#include <cmddisplay.h>
+#include "cmddisplay.h"
 #include <time.h>
 #include "npc.h"
 
@@ -18,7 +18,7 @@ void placar(int n_inimigos)
 	printf("\t\t\t %d segundos vivo\n", segundos++);
 }
 
-/* função verificar_morte() precisa de pequenos ajustes.
+// função verificar_morte() precisa de pequenos ajustes.
 void verificar_morte(display *tela, int posicao[])
 {
 	if (
@@ -30,7 +30,7 @@ void verificar_morte(display *tela, int posicao[])
 		exit(0);
 	}
 }
-*/
+
 
 //Função criar_inimigo() funcionando perfeitamente!
 void criar_inimigo(display *tela, int inimigos[][2], int *n_inimigos)

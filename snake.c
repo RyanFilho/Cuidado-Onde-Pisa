@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
-#include <cmddisplay.h>
-#include <cmddraw.h>
+#include "cmddisplay.h"
+#include "cmddraw.h"
 #include "npc.h"
 
 #define CIMA 72
@@ -82,7 +82,8 @@ int main ()
                 break;
         }
 		
-        //verificar_morte(&tela, posicao); <---***precisa ajustar***
+        verificar_morte(&tela, posicao); 
+        // <---***precisa ajustar***
         velocidade(&vel);
 		Sleep(vel);
 		placar(n_inimigos);
