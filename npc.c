@@ -53,10 +53,12 @@ void criar_inimigo (display *tela, int inimigos[][2], int *n_inimigos)
 void menu (display *tela)
 {
 	char code;
+	display_clear(tela);
 	display_puts(tela, tela->width/2 - 9, tela->height/2, "Cuidado onde pisa.");
 	display_puts(tela, tela->width/2 - 9, tela->height/2 - 1, "Menu:");
 	display_puts(tela, tela->width/2 - 5, tela->height/2 - 2, "1. Start");
 	display_puts(tela, tela->width/2 - 5, tela->height/2 - 3, "2. Exit");
+	display_show(tela);
 
 	code = getch();
 
