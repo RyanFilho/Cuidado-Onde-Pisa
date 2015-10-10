@@ -55,7 +55,6 @@ int main ()
 		
         criar_bordas(&tela);
         display_paint(&tela, posicao[0], posicao[1]);
-        display_show(&tela);
 
         while (kbhit()){
             char aux = getch();
@@ -81,8 +80,9 @@ int main ()
 		
         verificar_morte(&tela, posicao); 
         velocidade(&vel);
+        placar(&tela, n_inimigos);
+        display_show(&tela);
 		Sleep(vel);
-		placar(&tela, n_inimigos);
     }
 
     return 0;
