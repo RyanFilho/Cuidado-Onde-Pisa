@@ -82,7 +82,7 @@ int main ()
         verificar_morte(&tela, posicao); 
         velocidade(&vel);
 		Sleep(vel);
-		placar(n_inimigos);
+		placar(&tela, n_inimigos);
     }
 
     return 0;
