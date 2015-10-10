@@ -42,7 +42,7 @@ int main ()
     int n_inimigos = 0;
 	int vel = 150;
 	
-	menu();
+	menu(&tela);
     criar_cobra(&tela);
 	
     while (1) {
