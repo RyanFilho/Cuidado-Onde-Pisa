@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
-#include "cmddisplay.h"
-#include "cmddraw.h"
+#include <cmddisplay.h>
+#include <cmddraw.h>
 #include "npc.h"
 
 #define CIMA 72
@@ -19,27 +19,24 @@ void velocidade(int *vel)
 
 void criar_bordas (display *tela)
 {
-    draw_line(tela, 0, 0, 0, tela->height-1);
-    draw_line(tela, 0, 0, tela->width-1, 0);
+    draw_line(tela, 0, 2, 0, tela->height-1);
+    draw_line(tela, 0, 2, tela->width-1, 0);
     draw_line(tela, 0, tela->height-1, tela->width-1, tela->height-1);
-    draw_line(tela, tela->width-1, tela->height-1, tela->width-1, 0);
+    draw_line(tela, tela->width-1, tela->height-1, tela->width-1, 2);
 }
 
 void criar_cobra (display *tela)
 {
     display_paint(tela, tela->width/2, tela->height/2);
-    // int i;
-    // for (i = 4; i < X_INICIAL; i++)
-    //     display_paint(tela, i, tela->height-4);
 }
 
 int main ()
 {
     display tela;
-    display_create(&tela, 50, 25);
+    display_create(&tela, 52, 25);
 	
     char direcao = 77;
-    int posicao[2] = {tela.width/2, tela.height/2};
+    int posicao[2] = {tela.width/2, tela.height/2 + 1};
 	
     int inimigos[23*48 - 1][2];
     int n_inimigos = 0;
@@ -83,7 +80,6 @@ int main ()
         }
 		
         verificar_morte(&tela, posicao); 
-        // <---***precisa ajustar***
         velocidade(&vel);
 		Sleep(vel);
 		placar(n_inimigos);

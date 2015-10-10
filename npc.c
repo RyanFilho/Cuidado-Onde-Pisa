@@ -1,61 +1,65 @@
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
-#include "cmddisplay.h"
+#include <cmddisplay.h>
 #include <time.h>
 #include "npc.h"
+
+float g_start;
 
 // função placar() precisa de ajuste no clock,
 // pois inicia a contagem antes do jogador escolher "1.Start".
 // o resto da função está ok!
-void placar(int n_inimigos)
+
+void placar (display *tela, int n_inimigos)
 {
-	clock_t c, segundos;
-	c = clock();
-	segundos = c / CLOCKS_PER_SEC;
-	
-	printf("%d inimigos", n_inimigos);
-	printf("\t\t\t %d segundos vivo\n", segundos++);
+	float elapsed = (float) clock() / CLOCKS_PER_SEC;
+	elapsed -= g_start;
+
+	display_puts(tela, 0, 1, "%d inimigos", n_inimigos);
+	display_puts(tela, 0, 0, "%.0f segundos vivo", elapsed);
 }
 
 // função verificar_morte() precisa de pequenos ajustes.
-void verificar_morte(display *tela, int posicao[])
+
+void verificar_morte (display *tela, int posicao[])
 {
 	if (
         posicao[1] > tela->height-2 || posicao[0] > tela->width-2 ||
-        posicao[1] < 1              || posicao[0] < 1 
+        posicao[1] < 3              || posicao[0] < 1
         || tela->screen[posicao[1]*tela->width + posicao[0]] == 'X'
     ) {
-		system("cls");
-		printf("\n\n\n\n\t\t\t Voce morreu !\n");
+		display_clear(tela);
+		display_puts(tela, tela->width/2 - 6, tela->height/2,"Voce morreu!");
+		display_show(tela);
 		exit(0);
 	}
 }
 
-
 //Função criar_inimigo() funcionando perfeitamente!
-void criar_inimigo(display *tela, int inimigos[][2], int *n_inimigos)
+
+void criar_inimigo (display *tela, int inimigos[][2], int *n_inimigos)
 {
 	if (rand()% 5 == 0)
 	{
-        inimigos[*n_inimigos][0] = 1 + rand() % 48;
-        inimigos[*n_inimigos][1] = 1 + rand() % 23;
+        inimigos[*n_inimigos][0] = 1 + rand() % tela->width-2;
+        inimigos[*n_inimigos][1] = 3 + rand() % tela->height-4;
         (*n_inimigos)++;
 	}
 }
 
 //Função Menu() funcionando perfeitamente!
-void menu()
+
+void menu (display *tela)
 {
 	char code;
-	system("cls");
-	printf("\n\n\t           Cuidado onde pisa\n\n");
-	printf("\t                 Menu \n\n");
-	printf("\t                1. Start\n");
-	printf("\t                2. Exit\n");
-	
+	display_puts(tela, tela->width/2 - 9, tela->height/2, "Cuidado onde pisa.");
+	display_puts(tela, tela->width/2 - 9, tela->height/2 - 1, "Menu:");
+	display_puts(tela, tela->width/2 - 5, tela->height/2 - 2, "1. Start");
+	display_puts(tela, tela->width/2 - 5, tela->height/2 - 3, "2. Exit");
+
 	code = getch();
-	
+
 	while(code != '1')
 	{
 		if(code == '2')
@@ -63,4 +67,7 @@ void menu()
 		printf("\nDigite um código valido: ");
 		code = getch();
 	}
+
+	// Quando o jogo começa.
+	g_start = clock() / CLOCKS_PER_SEC;
 }
