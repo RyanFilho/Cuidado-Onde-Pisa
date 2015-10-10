@@ -29,7 +29,6 @@ void verificar_morte (display *tela, int posicao[])
         posicao[1] < 3              || posicao[0] < 1
         || tela->screen[posicao[1]*tela->width + posicao[0]] == 'X'
     ) {
-		display_clear(tela);
 		display_puts(tela, tela->width/2 - 6, tela->height/2,"Voce morreu!");
 		display_show(tela);
 		exit(0);
