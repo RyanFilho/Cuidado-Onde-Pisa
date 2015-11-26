@@ -1,3 +1,3 @@
 # Cuidado Onde Pisa
-Jogo que o objetivo é passar o maior tempo possivel sem encostar no X desenvolvido em C.
-É necessário a utilização da blibioteca github.com/skewerr/cmddisplay .
+Jogo desenvolvido em C cujo objetivo é passar o maior tempo possivel sem encostar no X.
+Utiliza uma versão antiga da biblioteca http://github.com/skewerr/cmddisplay/.
